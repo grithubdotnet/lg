@@ -2,21 +2,28 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+
+/* Application Modules */
+import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
+import { FrontendModule } from './frontend/frontend.module';
+import { RootComponent } from './root/root.component';
 
 @NgModule({
   declarations: [
-    AppComponent
-  ],
+  RootComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatButtonModule, MatCheckboxModule
+
+    CoreModule,
+    SharedModule,
+
+    FrontendModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [RootComponent]
 })
 export class AppModule { }

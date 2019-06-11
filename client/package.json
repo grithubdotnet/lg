@@ -1,10 +1,12 @@
 {
   "name": "client",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "npm run build & concurrently --kill-others \"npm run serve\"",
+    "serve": "ng serve --proxy-config \"../Server/proxy.conf.json\"",
+    "build": "ng build --output-path=\"../Server/public\"",
+    "serve-api": "node \"../Server/app.js\"",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
