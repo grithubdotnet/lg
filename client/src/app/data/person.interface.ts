@@ -1,3 +1,5 @@
+import { IRole } from './role.interface';
+
 export interface IPerson{
     id: string,
     name: {
@@ -16,6 +18,7 @@ export interface IPerson{
         },
         email: string,
     },
+    role: IRole,
     skills: [{
         id: string,
         name: string,
