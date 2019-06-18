@@ -11,13 +11,15 @@ export interface IPerson{
     displayName: string,
     contact: {
         mobile: string,
-        address: {
-            line1: string,
-            line2: string,
-            landmark: string,
-            zipcode: number,
-        },
         email: string,
+    },
+    address: {
+        line1: string,
+        line2: string,
+        landmark: string,
+        city: string,
+        state: string,
+        zipcode: number,
     },
     role: IRole,
     skills: [IPersonSkill],
