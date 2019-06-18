@@ -1,4 +1,5 @@
 import { IRole } from './role.interface';
+import { IPersonSkill } from './person_skill.interface';
 
 export interface IPerson{
     id: string,
@@ -14,13 +15,10 @@ export interface IPerson{
             line1: string,
             line2: string,
             landmark: string,
-            code: number,
+            zipcode: number,
         },
         email: string,
     },
     role: IRole,
-    skills: [{
-        id: string,
-        name: string,
-    }],
+    skills: [IPersonSkill],
 }
