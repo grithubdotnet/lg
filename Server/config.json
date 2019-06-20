@@ -1,4 +1,4 @@
 {
     "httpPort": 3000,
-    "database": "mongodb://localhost/test"
+    "connectionString": "mongodb://localhost/test"
 }

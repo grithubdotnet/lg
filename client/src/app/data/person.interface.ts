@@ -20,4 +20,5 @@ export interface IPerson {
     },
     role: IRole,
     skills: [IPersonSkill],
+    active: boolean
 }

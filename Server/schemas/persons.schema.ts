@@ -36,13 +36,17 @@ const PersonSchema: Schema = new Schema({
   modifiedDate: { type: Date },
   createdBy: { type: String },
   role: RoleSchema,
-  skills: [SkillSchema]
+  skills: [SkillSchema],
+  active: { type: Boolean }
 }).pre("save", function (next) {
   if (this) {
     let doc = <IPerson>this;
     let now = new Date();
     if (!doc.createdDate) {
       doc.createdDate = now;
+    }
+    if(!doc.active){
+      doc.active = true;
     }
     doc.modifiedDate = now;
   }

@@ -52,4 +52,15 @@ export class PersonsRepository extends MongoRepository {
         }
     }
 
+    async markPersonInactive(id: string): Promise< {} | Error> {       
+        try{
+            const res = await person.updateOne({ _id: new ObjectId(id) }, {active: false});
+            return res;
+        }catch(err){
+            console.log(err);
+            return new Error(err.message);
+        }
+    }
+
+
 }

@@ -29,9 +29,21 @@ router.get("/find/:id", async (req, res, next) => {
 
 });
 
+// router.get("/delete/:id", async (req, res, next) => {
+//     let a = new PersonsRepository();
+//     let p = await a.deletePerson(req.params.id);
+//     if (p instanceof Error) {
+//         res.status(500);
+//         res.send({ "error": p.message });
+//     } else {
+//         res.send(p);
+//     }
+
+// });
+
 router.get("/delete/:id", async (req, res, next) => {
     let a = new PersonsRepository();
-    let p = await a.deletePerson(req.params.id);
+    let p = await a.markPersonInactive(req.params.id);
     if (p instanceof Error) {
         res.status(500);
         res.send({ "error": p.message });
