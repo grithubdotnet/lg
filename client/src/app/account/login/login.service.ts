@@ -10,7 +10,7 @@ export class LoginService {
   constructor(  private http: HttpClient,) { }
 
   getUsers (): Observable<any> {
-    return this.http.get('/api/users');
+    return this.http.get('/api/persons/create');
   }
 
   private handleError(error: HttpErrorResponse) {

@@ -1,6 +1,6 @@
 import { MongoRepository } from "./_mongo.repository";
 import { person, IPerson } from '../schemas/persons.schema'
-import { ObjectID } from "bson";
+import { ObjectId } from "bson";
 import { NativeError } from "mongoose";
 
 export class PersonsRepository extends MongoRepository {
@@ -19,19 +19,21 @@ export class PersonsRepository extends MongoRepository {
         }
     }
 
-    async createPerson(p:IPerson): Promise<IPerson|Error> {
+    async createPerson(p:JSON): Promise<IPerson|Error> {
         try {
+            //let per = new person({ name: { first: "swagath", middle: "dev", last: "Bairi" }, mobile: 9014720192, email: "swagath", address: { line1: "279/c", } });
+            let per =new person(p);
             let result = await person.create(p);
             return result;
         } catch (err) {
-            return new Error("Error while saving person to DB")
+            return new Error(err.message ? err.message : "error while saving person to db");
         }
 
     }
 
-    async findPersonById(id: string): Promise<IPerson | null| Error> {
-        var p = person.findById(id.toString());
+    async findPersonById(id: string): Promise<IPerson | null| Error> {        
         try{
+            var p = person.findById(id.toString());
             let result = await p.exec();
             return result;
         }catch(err){
@@ -39,6 +41,15 @@ export class PersonsRepository extends MongoRepository {
             return new Error(err.message);
         }
     }
-
+    
+    async deletePerson(id: string): Promise< {} | Error> {       
+        try{
+            const res = await person.deleteOne({ _id: new ObjectId(id) });
+            return res;
+        }catch(err){
+            console.log(err);
+            return new Error(err.message);
+        }
+    }
 
 }

@@ -2,7 +2,7 @@ import mongoose, { Schema, Document } from 'mongoose';
 import { ObjectID } from 'bson';
 import { IRole } from '../../client/src/app/data/role.interface';
 import { IPersonSkill } from '../../client/src/app/data/person_skill.interface';
-import { IPerson } from '../../client/src/app/data/person.interface';
+import { IPerson as IPersonData } from '../../client/src/app/data/person.interface';
 
 const AddressSchema: Schema = new Schema({
   line1: { type: String, required: true },
@@ -39,7 +39,7 @@ const PersonSchema: Schema = new Schema({
   skills: [SkillSchema]
 }).pre("save", function (next) {
   if (this) {
-    let doc = <IPersonData>this;
+    let doc = <IPerson>this;
     let now = new Date();
     if (!doc.createdDate) {
       doc.createdDate = now;
@@ -59,7 +59,7 @@ export interface IAddress {
   zipcode: number,
 }
 
-export interface IPersonData extends Document, IPerson {
+export interface IPerson extends Document, IPersonData {
   _id: ObjectID,
   createdDate:Date,
   modifiedDate: Date,
@@ -69,4 +69,4 @@ export interface IPersonData extends Document, IPerson {
 
 export { IRole, IPersonSkill }
 
-export var person = mongoose.model<IPersonData>('person', PersonSchema, 'persons');
+export var person = mongoose.model<IPerson>('person', PersonSchema, 'persons');

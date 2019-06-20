@@ -1,17 +1,15 @@
 import { IRole } from './role.interface';
 import { IPersonSkill } from './person_skill.interface';
 
-export interface IPerson{
+export interface IPerson {
     name: {
         first: string,
         middle: string,
-        last: string
+        last: string,
+        displayName: string,
     },
-    displayName: string,
-    contact: {
-        mobile: string,
-        email: string,
-    },
+    mobile: string,
+    email: string,
     address: {
         line1: string,
         line2: string,
