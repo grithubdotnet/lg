@@ -1,5 +1,4 @@
 export interface IJobRequest{
-    id: string,
     barcode: string,
     name: string,
     jobId: string,

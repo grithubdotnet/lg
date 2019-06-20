@@ -1,9 +1,10 @@
 import { ISpecification } from './specification.interface';
 
 export interface IAsset{
-    id: string,
     name: string,
     displayName: string,
-    code: string,
-    specifications: ISpecification
+    barCode: string,
+    modelNumber: string,
+    serialNumber: string,
+    specifications: ISpecification,
 }

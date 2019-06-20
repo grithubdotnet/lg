@@ -1,5 +1,4 @@
 export interface IAssetGroup{
-    id: string,
     assetId: string,
     MIT: [number], /*Mandatory group item type numbers */
     MI: [number], /**Mandatory group item numbers */

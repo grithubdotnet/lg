@@ -1,7 +1,6 @@
 import { ISpecification } from './specification.interface';
 
 export interface IGroupType{
-    id: string,
     typeId: string, /**Group type */
     groupingBy: [ISpecification]
 }

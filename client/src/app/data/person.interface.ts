@@ -2,7 +2,6 @@ import { IRole } from './role.interface';
 import { IPersonSkill } from './person_skill.interface';
 
 export interface IPerson{
-    id: string,
     name: {
         first: string,
         middle: string,
